@@ -7,11 +7,11 @@
 
 	<div id="content" class="card" >
 		<div class="login-card ">
-			<img src="../static/images/images-min/logo.png"/><br>
+			
+			<img src="{{ url_for('static', filename='/images/images-min/logo.png') }}"/><br>
 			 <h1></h1>
-		  <form name="login_form" method="post" action="$PORTAL_ACTION$">
-			  <input type="hidden" name="redirurl" value="$PORTAL_REDIRURL$">
-			  <input type="zone" name="hidden" value="$PORTAL_ZONZ">
+		  <form name="login_form" method="POST" action="submit">
+			  
 			<input type="text" name="auth_user" placeholder="Utilisateur" id="auth_user">
 			<input type="password" name="auth_pass" placeholder="Mots de passe" id="auth_pass">
 			  <div class="login-help">
@@ -24,7 +24,7 @@
 					</li>
 				</ul>
 			  </div>
-			<input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$">
+			
 			<input type="submit" name="accept" class="login login-submit" value="Connexion" id="login" disabled>
 		  </form>
 		</div>

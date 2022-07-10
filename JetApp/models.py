@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 
 class Humain():
     
-    def __init__(self,nom:str,prenom:str,sexe:str,age:int):
+    def __init__(self,nom,prenom,sexe,age=0):
         self.nom = nom
         self.prenom = prenom
         self.sexe = sexe
@@ -68,22 +68,37 @@ class Prof (Humain, db.Model):
     __tablename__ = "professeur"
     
     id = db.Column(db.Integer, primary_key=True)
+    mat = db.Column(db.Integer(), db.ForeignKey('matier.id'),nullable=False)
+    nom = db.Column(db.String(25), nullable=False)
+    prenom = db.Column(db.String(25), nullable=False)
+    sexe = db.Column(db.String(15), nullable=False)
+    
+    
+    def __init__(self,matier, nom, prenom, sexe, age=0):
+        super().__init__(nom, prenom, sexe, age)
+        self.mat = matier
+        
     
 mati = ["SVT", "Maths", "Infromatique", "Histoire", "EPS", "Pysique", "Chimie"]
-clss = ["6eme","5eme","4eme","3eme","2nde","1er","Tle"]
-
+clss = [["6eme",25],["5eme",55],["4eme",30],["3eme",85],["2nde",45],["1er",25],["Tle",15]]
+ 
 def init_db():
     db.drop_all()
     db.create_all()
     for i in range(len(mati)):
-        db.session.add(Matier(mati(i)))
+        db.session.add(Matier(mati[i]))
     for i in range(len(clss)):
-        db.session.add(SalleClass(clss(i)))
-    db.session.add(Etudiant(58,2,"sima","emmaneul","5",25))
+        db.session.add(SalleClass(clss[i][0],clss[i][1]))
+    db.session.commit()
+    db.session.add(Etudiant("2022SN001",5,"SIMA","NDI","M",25))
+    db.session.add(Prof(7,"Dr Nkamdem","juline","F"))
+    
     db.session.commit()
     lg.warning("La base de donnée est initialiser")
+  
+
+
     
-db.create_all()
 
 db.create_all()
     
