@@ -21,7 +21,18 @@ class Humain():
         self.sexe = sexe
         self.age = age
 
-
+class AdminJet(db.Model):
+    __tablename__= "adminjet"
+    
+    id = id = db.Column(db.Integer, primary_key=True)
+    login = db.Column(db.String(15), nullable=False)
+    passwd = db.Column(db.String(256), nullable=False)
+    
+    def __init__(self,login,passwd) -> None:
+        self.login = login
+        self.passwd = passwd
+    
+    
 class Matier(db.Model):
     
     __tablename__= "matier"
@@ -90,6 +101,7 @@ def init_db():
     for i in range(len(clss)):
         db.session.add(SalleClass(clss[i][0],clss[i][1]))
     db.session.commit()
+    db.session.add(AdminJet('root',"theroot"))
     db.session.add(Etudiant("2022SN001",5,"SIMA","NDI","M",25))
     db.session.add(Prof(7,"Dr Nkamdem","juline","F"))
     

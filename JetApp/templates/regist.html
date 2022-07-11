@@ -1,5 +1,5 @@
 
-
+{% include 'card.html' %}
 {% extends 'base.html' %}
 
 {% block content %}
@@ -12,14 +12,19 @@
             <h1></h1>
          <form name="login_form" method="POST" action="submit">
              
-           <input type="text" name="auth_user" placeholder="Utilisateur" id="auth_user">
-           <input type="password" name="auth_pass" placeholder="Mots de passe" id="auth_pass">
+           <input type="text" name="nom_humain" placeholder="Nom" id="nom_humain">
+           {{from.nom.label}}
+           <input type="text" name="prenom_h" placeholder="Prénom" id="prenom_h">
+           <input type="text" name="class_H" placeholder="Classe" id="class_H">
+           <input type="text" name="Age_h" placeholder="Date de naissance" id="Age_h">
+           <input type="text" name="sexe_h" placeholder="Sexe" id="sexe_h">
+           
              <div class="login-help">
                <ul class="list">
                    <li class="list__item">
                      <label class="label--checkbox">
                          <input type="checkbox" class="checkbox" onchange="document.getElementById('login').disabled = !this.checked;">
-                         <span>J’accepte les conditions de <a target="_blank" rel="noopener" href="http://www.termslicences.com/example.pdf">connexion</a></span>
+                         <span>c'eation de l'etudiant !</span>
                      </label>
                    </li>
                </ul>
@@ -34,3 +39,7 @@
 </section>
 
 {% endblock %}
+
+
+
+

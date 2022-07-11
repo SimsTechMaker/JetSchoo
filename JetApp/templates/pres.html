@@ -1,0 +1,93 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'card.html' %}
+<section style="padding: 0;">
+    <div class="">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+
+              
+<!-- Student Profile -->
+<div class="student-profile py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent text-center">
+            <img class="profile_img" src="{{ url_for('static', filename='/images/images-max/tete.jpg') }}" alt="student dp">
+            <h3>SIMA NDI PIERRE</h3>
+          </div>
+          <div class="card-body">
+            <p class="mb-0"><strong class="pr-1">Matricule:</strong>321000001</p>
+            <p class="mb-0"><strong class="pr-1">Classe:</strong>4</p>
+            <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Informations Génerales</h3>
+          </div>
+          <div class="card-body pt-0">
+            <table class="table table-bordered">
+              <tr>
+                <th width="30%">Date d'inscription</th>
+                <td width="2%">:</td>
+                <td>23-09-2021    </td>
+              </tr>
+              <tr>
+                <th width="30%">Nom du père/ Tuteur legale</th>
+                <td width="2%">:</td>
+                <td>Mr TAKAM</td>
+              </tr>
+              <tr>
+                <th width="30%">Nom de la mère </th>
+                <td width="2%">:</td>
+                <td>Meme SIMONE</td>
+              </tr>
+              <tr>
+                <th width="30%">Date de Naissance</th>
+                <td width="2%">:</td>
+                <td>20-05-2000</td>
+              </tr>
+              <tr>
+                <th width="30%">Quartier</th>
+                <td width="2%">:</td>
+                <td>NKOMO</td>
+              </tr>
+              <tr>
+                <th width="30%">Numero d'urgence</th>
+                <td width="2%">:</td>
+                <td>691450977</td>
+              </tr>
+            </table>
+            <input type="submit" name="accept" class="login login-submit" value="Modifier" id="login" >
+
+          </div>
+        </div>
+          <div style="height: 26px"></div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+           
+    		</div>
+		</div>
+    </div>
+</section>
+     
+
+
+    <!-- Analytics -->
+
+
+
+
+{% endblock %}

@@ -1,7 +1,7 @@
 #content,.login,.login-card a,.login-card h1,.login-help{text-align:center}
 #content{font-family:'Source Sans Pro',sans-serif;width:100%;height:100%;display:table;vertical-align:middle; }
 .login-card{padding:40px;width:274px;background-color:#F7F7F7;margin:0 auto 0;border-radius:0;box-shadow:0 2px 2px rgba(0,0,0,.3);overflow:hidden; }
-.login-card img{margin-right: 0%;width:60%;height:60%}
+.login-img{margin-right: 0%; ;width:10%;height:13%}
 .login-card input[type=submit]{width:100%;display:block;margin-bottom:10px;position:relative}
 .login-card input[type=text],input[type=password]{height:44px;font-size:16px;width:100%;margin-bottom:10px;-webkit-appearance:none;background:#fff;border:1px solid #d9d9d9;border-top:1px solid silver;padding:0 8px;box-sizing:border-box;-moz-box-sizing:border-box}
 .login-card input[type=text]:hover,input[type=password]:hover{border:1px solid #b9b9b9;border-top:1px solid #a0a0a0;-moz-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);box-shadow:inset 0 1px 2px rgba(0,0,0,.1)}
@@ -72,4 +72,121 @@ input[type=checkbox]{-webkit-box-flex:0;-webkit-flex:none;-ms-flex:none;flex:non
   header .container {
     padding-top: 0px;
   }
+
+  .sims{
+    padding-left: 60%;
+    position: absolute;
+    }
+
+
+    .sims2 {
+      background-color: #18BC9C;
+      color: white;
+      border-color: #18BC9C;
+    }
+
+.submenu {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      list-style: none;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      min-width: calc(3.5 * var(--menu-item-size) - 20%);
+      box-shadow: 5px 5px 5px #CCC;
+  }
+
+
+  .with-submenu {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.with-submenu:hover .submenu {
+    display: block;
+}
+
+.submenu > li {
+    background: #dedede;
+    border-bottom: 1px solid var(--gray-color); 
+    color: #777;
+    padding: 1.2em 1em;
+    transition: 0.3s all linear;
+    display: block;
+    line-height: 0%;
+}
+
+.submenu > li:hover {
+    background: var(--gray-color)
+}
+
+.submenu > li:active {
+    background: var(--white-color);
+}
+
+
+
+.main-menu {
+  display: flex;
+  list-style: none;
+  margin: auto 0;
+  padding: 0.6em 0 0 0;
+}
+
+.main-menu > li {
+  box-sizing: border-box;
+  height: var(--menu-item-size);
+  width: calc(3.5 * var(--menu-item-size));  
+  line-height: var(--menu-item-size);
+  padding: 0 2em;
+  margin: 1px;
+  transition: 0.5s linear all;
+  background: var(--green-color);
+  color: var(--dark-green-color);
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+
+.main-menu > li:nth-child(2) {
+  transform: translateX(-5%);
+}
+
+.main-menu > li:nth-child(3) {
+  transform: translateX(-10%)
+}
+
+.main-menu > li:nth-child(4) {
+  transform: translateX(-15%)
+}
+
+.main-menu i {
+  margin-right: 5px;
+}
+
+.main-menu > li:hover:not(.active) {
+  background: linear-gradient(to right, var(--green-color), var(--blue-color));
+  color: var(--white-color);
+}
+
+.main-menu > li:active:not(.active),
+.main-menu > li:active:not(.with-submenu){
+  background: var(--blue-color);
+  color: var(--white-color);
+}
+
+.main-menu > li:hover i:not(li.active) {
+  color: #175c58;
+}
+
+.main-menu .active {
+  color: var(--white-color);
+  background: var(--blue-color);
+  cursor: default;
+  text-shadow: 1px 1px 1px var(--dark-green-color);
+  font-size: 18px;
+}
   

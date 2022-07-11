@@ -26,7 +26,7 @@ header img#button_user_pic {
 }
 
 footer hr.star-light:after {
-  background-color: #233140;
+  background-color: #a6abaf;
 }
 
 .card {
@@ -52,7 +52,9 @@ footer hr.star-light:after {
 .navbar-custom {
   padding: 10px;
 }
-
+.sims{
+padding-left: 60%;
+}
 header .container {
   padding-top: 150px;
 }
