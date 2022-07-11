@@ -5,13 +5,12 @@ from . import models
 from . import gestion
 from . import route
 from .models import Etudiant, db
-from . import fonction
+
 
 models.db.init_app(app)
 
 
 models.init_db()  
-
 
 """ 
 

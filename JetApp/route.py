@@ -11,7 +11,7 @@ from .fonction import etudi4
 
 
 
-
+infoEtudiant=etudi4
 @app.route('/')
 def index():
     return render_template('login.html',title="login")
@@ -25,9 +25,10 @@ def listeEtudiant():
 
 @app.route('/pres')
 def etudiant():
+   
     
     
-    return render_template('pres.html', nomEtu= etudi4.nom, title="Etudiant")
+    return render_template('pres.html', nomEtu= infoEtudiant[0], title="Etudiant")
 
 
 @app.route('/register',methods=['POST','GET'])
