@@ -1,20 +1,18 @@
+from .views import app
+
 from atexit import register
 import re
 from flask import Flask, render_template, request
 
 from .form import ResiterForm, Filtre, Scan
+from .fonction import etudi4
 
 
 
 
 
 
-app = Flask(__name__)
-
-app.config.from_object('config')
-
-
-""" @app.route('/')
+@app.route('/')
 def index():
     return render_template('login.html',title="login")
 
@@ -29,7 +27,7 @@ def listeEtudiant():
 def etudiant():
     
     
-    return render_template('pres.html', nomEtu=nom, title="Etudiant")
+    return render_template('pres.html', nomEtu= etudi4.nom, title="Etudiant")
 
 
 @app.route('/register',methods=['POST','GET'])
@@ -50,6 +48,6 @@ def submit_pwd():
 
 @app.route('/logout')
 def logout():
-    pass """
+    pass
 """ if __name__ == "__main__":
     app.run() """

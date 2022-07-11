@@ -16,6 +16,13 @@
     <meta property="og:image" content="tmp/sample.jpg" />
     <meta property="og:description" content="Faites le test ultime et découvrez qui vous êtes vraiment !" />
 
+
+    <!-- spectre Core CSS -->
+    <link rel="stylesheet" href="spectre.min.css">
+    <link rel="stylesheet" href="spectre-exp.min.css">
+    <link rel="stylesheet" href="spectre-icons.min.css">
+
+
     <!-- Bootstrap Core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -53,31 +60,31 @@
 <body id="page-top" class="index">
 
     <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default  navbar-custom">
+    <nav id="mainNav" class="navbar navbar-default col-lg navbar-custom">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header  col-lg-5">
                   <a  href="/"><img class="login-img" src="{{ url_for('static', filename='/images/images-min/logo.png') }}"/></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class=" menu sims">
-                <ul class="main-menu">
-                    <li class="with-submenu sims2">
-                        <a: focus href="#page-top"> Inscription</a>
+            <div class="  col-lg-6">
+                <ul class="navbar-custom  ">
+                    <li class="navbar-toggle with-submenu sims2">
+                        <a :  hover href="#page-top"> Inscription</a>
                         <ul class="submenu">
-                            <li>Etudiant</li>
-                            <li>Proffeseur</li>
+                            <li><a href="{{ url_for('register') }}">Etudiant</a></li>
+                            <li><a href="#">Proffeseur</a></li>
                             <li>Matiers</li>
                             <li>Classe</li>
                             
                         </ul>
                     </li>
 
-                    <li class="with-submenu">
-                        <a: focus href="#page-top"> Recherche</a>
+                    <li class=" navbar-toggle with-submenu sims2">
+                        <a : hover href="#"> Recherche</a>
                         <ul class="submenu">
-                            <li>Etudiant</li>
+                            <li><a href="{{ url_for('listeEtudiant') }}">Etudiant</a></li>
                             <li>Proffeseur</li>
                             <li>Matiers</li>
                             <li>Classe</li>
@@ -85,8 +92,8 @@
                         </ul>
                     </li>
                     
-                    <li class="with-submenu">
-                        <a: focus href="#page-top"> Deconection</a>
+                    <li class="navbar-toggle with-submenu">
+                        <a : hover href="{{ url_for('index') }}"> Deconection</a>
                     </li>
                     
                 </ul>

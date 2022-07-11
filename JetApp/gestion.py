@@ -1,8 +1,6 @@
-from flask import Flask, flash 
+
 import logging as lg
 
-from .views import app
-from . import models
 from .models import db , Etudiant
 
 def Post_etudiant(nom,prenom,age,sexe,Salclass,matricul):
