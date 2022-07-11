@@ -1,14 +1,25 @@
+from atexit import register
+import re
 from flask import Flask, render_template, request
+from .form import ResiterForm
 
 app = Flask(__name__)
 
 app.config.from_object('config')
 
 @app.route('/')
-def login():
-    return render_template('login.html')
+def index():
+    return render_template('listeEtu.html')
 
 
+
+@app.route('/register')
+def register():
+    form = ResiterForm()
+
+    return render_template('regist.html',form=form,title="Inscription", )
+    
+    
 @app.route('/submit', methods=['POST'])
 def submit():
     auth_pass = request.form['auth_pass']
