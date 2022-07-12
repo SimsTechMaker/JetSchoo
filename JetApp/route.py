@@ -59,8 +59,8 @@ def search():
     query = request.args.get("query")
     entries = db.session.query(Etudiant)  
     if query:
-        return render_template("listeEtu", entries=entries, query=query)
-    return render_template("listeEtu")    
+        return render_template("listeEtu.html", entries=entries, query=query)
+    return render_template("listeEtu.html")    
  
    
 @app.route("/login",  methods= ['GET','POST'])
