@@ -1,12 +1,14 @@
+
+from os import abort
 from .views import app
 
 from atexit import register
 import re
-from flask import Flask, render_template, request
+from flask import Flask, flash, redirect, render_template, request, session, url_for
 
 from .form import ResiterForm, Filtre, Scan
 from .fonction import etudi4
-
+from .gestion import Post_etudiant
 
 
 
@@ -15,6 +17,32 @@ infoEtudiant=etudi4
 @app.route('/')
 def index():
     return render_template('login.html',title="login")
+
+
+
+
+""" @app.route("/add", methods=["POST"])
+def add_etu():
+    #""#Ajoute un etudiant a la base de donné
+    #""
+    if not session.get("logged_in"):
+        abort(401)
+    matricule = "request.form[]"
+    nom = request.form['nom']
+    prenom = request.form['prenom']
+    classe = request.form['SalClass']
+    sexe = request.form['sexe']
+    age = str(request.form['date_nais'])
+    Post_etudiant(nom,prenom,age,sexe,classe,matricule)
+    flash ("Etudiant enregister avec succes !")
+    return redirect(url_for("listeEtu"))
+ """
+
+    
+
+    
+
+
 
 @app.route('/listeEtu')
 def listeEtudiant():
@@ -25,10 +53,10 @@ def listeEtudiant():
 
 @app.route('/pres')
 def etudiant():
-   
+    description =" Information sur l'etudiant "
     
     
-    return render_template('pres.html', nomEtu= infoEtudiant[0], title="Etudiant")
+    return render_template('pres.html', nomEtu= "infoEtudiant[0]", title="Etudiant",desc=description)
 
 
 @app.route('/register',methods=['POST','GET'])

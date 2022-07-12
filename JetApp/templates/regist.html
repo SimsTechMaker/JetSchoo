@@ -3,16 +3,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include 'card.html' %}
-<section class="container " id="maincontent" tabindex="-1">
 
-   <div id="content" class="card" >
+
+  
+
+   <div  class="row col-lg" >
        <div class="login-card2 col-lg ">
            
            <img class="col-lg-3" src="{{ url_for('static', filename='/images/images-min/logo.png') }}"/><br>
-            <h1></h1>
+            
          <form class="col-lg-8" name="login_form" method="POST" action="register">
-            <div class="col-lg-8">
+            <div class="">
                 <div class="card shadow-sm">
                   <div class="card-header bg-transparent border-0">
                     <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Informations Génerales</h3>
@@ -62,7 +63,7 @@
    </div>
    
 
-</section>
+
 
 {% endblock %}
 
