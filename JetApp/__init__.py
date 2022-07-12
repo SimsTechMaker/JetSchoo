@@ -9,8 +9,9 @@ from .models import Etudiant, db
 
 models.db.init_app(app)
 
-
-models.init_db()  
+@app.cli.command()
+def init_db():
+    models.init_db()  
 
 """ 
 

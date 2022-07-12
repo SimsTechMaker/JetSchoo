@@ -3,6 +3,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% for message in get_flashed_messages() %}
+<div class="flash alert alert-success col-sm-4" role="success">
+  {{ message }}
+</div>
+{% endfor %}
 <section class="container " id="maincontent" tabindex="-1">
 
    <div id="content" class="card" >
@@ -10,7 +15,7 @@
            
            
             <h1>Vos identifiants SVP !</h1>
-         <form name="login_form" method="POST" action="submit_pwd">
+         <form name="login_form" method="POST" action="login">
              
            <input type="text" name="auth_user" placeholder="Utilisateur" id="auth_user">
            <input type="password" name="auth_pass" placeholder="Mots de passe" id="auth_pass">

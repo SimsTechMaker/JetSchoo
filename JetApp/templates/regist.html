@@ -12,7 +12,7 @@
            
            <img class="col-lg-3" src="{{ url_for('static', filename='/images/images-min/logo.png') }}"/><br>
             
-         <form class="col-lg-8" name="login_form" method="POST" action="register">
+         <form class="col-lg-8" name="login_form" method="POST" action="{{ url_for('add_etu') }}">
             <div class="">
                 <div class="card shadow-sm">
                   <div class="card-header bg-transparent border-0">

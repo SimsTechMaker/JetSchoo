@@ -64,8 +64,8 @@ class Etudiant(Humain, db.Model):
     nom = db.Column(db.String(25), nullable=False)
     prenom = db.Column(db.String(25), nullable=False)
     sexe = db.Column(db.String(15), nullable=False)
-    age = db.Column(db.Integer(), nullable=False)
-    classe = db.Column(db.Integer(), db.ForeignKey('salleclass.id'),nullable=False)
+    age = db.Column(db.String(12), nullable=False)
+    classe = db.Column(db.String(9), db.ForeignKey('salleclass.id'),nullable=False)
     
     def __init__(self,matricule,classe, nom, prenom, sexe, age):
         super().__init__(nom, prenom, sexe, age)
@@ -110,8 +110,4 @@ def init_db():
   
 
 
-    
-
-db.create_all()
-    
-        
+   

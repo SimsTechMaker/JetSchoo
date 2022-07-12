@@ -19,7 +19,8 @@ def Login_requi(f):
         return f(*args,**kwargs)
     return decoration_fonction
 
-
+def listeetudiant():
+    pass
 
 """ infoEtudian = [ etudi4.nom,
                         etudi4.prenom,
