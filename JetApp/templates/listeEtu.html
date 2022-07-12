@@ -32,15 +32,17 @@
                                     <td width="24%">date de naissance</td>
                                     <td width="2%"><a href="{{ url_for('etudiant') }}"><i class="icon icon-plus">+</i></a></td>
                                 </tr>
+                                {% for i in range(dim)%}
                                 <tr>
-                                    <th width="18%">Matricule</th>
-                                    <td width="24%">Nom</td>
-                                    <td width="24%">prenom</td>
+                                    <th width="18%">{{liste[i][5]}}</th>
+                                    <td width="24%">{{liste[i][0]}}</td>
+                                    <td width="24%">{{liste[i][1]}}</td>
+                                    <td width="2%">{{liste[i][2]}}</td>
                                     <td width="2%">sexe</td>
-                                    <td width="2%">sexe</td>
-                                    <td width="24%">date de naissance</td>
+                                    <td width="24%">{{liste[i][3]}}</td>
                                     <td width="2%"><a href="{{ url_for('etudiant') }}"><i class="icon icon-plus">+</i></a></td>
                                 </tr>
+                                {% endfor %}
                                 </table>
                                 <input type="submit" name="accept" class="login login-submit" value="Modifier" id="login" >
 

@@ -12,7 +12,7 @@ import re
 from flask import Flask, flash, jsonify, redirect, render_template, request, session, url_for
 
 from .form import ResiterForm, LogForm, Filtre, Scan
-from .fonction import Login_requi, etudi4
+from .fonction import Login_requi, etudi4, listeDesEtudiant
 from .gestion import Post_etudiant, delet_etudiant, get_classe, get_etudiant
 
 
@@ -90,8 +90,14 @@ def logout():
 def listeEtudiant():
     filtre = Filtre()
     description =" Liste des etudiants "
+    liste = listeDesEtudiant()
+    dim =len(liste)
     
-    return render_template('listeEtu.html', form = filtre , title="Liste des Etudiants ", desc=description)
+    return render_template('listeEtu.html', form = filtre ,
+                           dim=dim ,
+                           liste =liste,
+                           
+                           title="Liste des Etudiants ", desc=description)
 
 @app.route('/pres')
 def etudiant():
