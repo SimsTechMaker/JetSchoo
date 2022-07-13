@@ -18,10 +18,22 @@
         <div class="card shadow-sm">
           <div class="card-header bg-transparent text-center">
             <img class="profile_img" src="{{ url_for('static', filename='/images/images-max/tete.jpg') }}" alt="student dp">
-            <h3>{{nomEtu}}</h3>
+            <form action="update", method="post">
+            {% if  not modi %}
+            <h3>{{nomEtu}} {{prenEtu}} </h3>
+            {% print(id1)%}
+            {% endif %}
+            {% if   modi %}
+            <h3>
+              {{etudiant[0]}} {{ etudiant[1]}}
+            </h3>
+            {% endif %}
           </div>
           <div class="card-body">
             <p class="mb-0"><strong class="pr-1">Matricule:</strong>{{matriEtu}}</p>
+            {% if   modi %}
+
+            {% endif %}
             <p class="mb-0"><strong class="pr-1">Classe:</strong>{{classEtu}}</p>
             <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
           </div>
@@ -39,6 +51,33 @@
                 <td width="2%">:</td>
                 <td>23-09-2021    </td>
               </tr>
+              {% if   modi %}
+              <tr>
+                <th width="30%">Nom</th>
+                <td width="2%">:</td>
+                <td><input type="text" name="lnom"  class="col-lg" value="{{etudiant[0]}}"></td>
+              </tr>
+              <tr>
+                <th width="30%">Prenom</th>
+                <td width="2%">:</td>
+                <td><input type="text"  name="prenom"  class="col-lg" value="{{etudiant[1]}}"></td>
+              </tr>
+              <tr>
+                <th width="30%">Classe</th>
+                <td width="2%">:</td>
+                <td><input type="text" name="classe"  class="col-lg" value="{{classe[0]}}"></td>
+              </tr>
+              <tr>
+                <th width="30%">Sexe</th>
+                <td width="2%">:</td>
+                <td>{{form.sexe(class="form-radio")}}</td>
+              </tr>
+              <tr>
+                <th width="30%">Age</th>
+                <td width="2%">:</td>
+                <td><input type="text" name="lage"  class="col-lg" value="{{etudiant[3]}}"></td>
+              </tr>
+              {% endif %}
               <tr>
                 <th width="30%">Nom du père/ Tuteur legale</th>
                 <td width="2%">:</td>
@@ -65,7 +104,31 @@
                 <td>691450977</td>
               </tr>
             </table>
-            <input type="submit" name="accept" class="login login-submit" value="Modifier" id="login" >
+          
+            <div>
+              {% if   modi %}
+              
+                <input type="hidden" name="id_et" value="{{val}}">
+                <input type="submit" name="accept" class="btn btn-success " style="position: relative;"   value="Valider"  >
+
+              
+              {% endif %}
+            </form>
+              {% if  not modi %}
+              <form action="modif" class="row" method="POST">
+              <label class="label--checkbox col-lg" >
+                  <input type="checkbox" class="checkbox" onchange="document.getElementById('login').disabled = !this.checked;">
+                  <span>je voudrais supprimer l'etudiant(e)</a></span>
+              </label>
+              <input type="hidden" name="id_et" value="{{id1}}">
+              <div class=" col-lg-">
+                <input type="submit" name="submit" class="btn btn-secondary " style="position: relative;"   value="Modifier" onClick="history.go(0) " >
+              <input type="submit" name="submit" class="btn btn-danger " style="position: relative;"   value="Supprimer"  id="login" disabled >
+              </div>
+              </form>
+              {% endif %}
+            
+            </div>
 
           </div>
         </div>

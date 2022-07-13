@@ -34,6 +34,17 @@ def get_classe(id_classe):
     return variable
 
 
+def update_etudiant(id_etudiant,dicoModifEtudiant):
+    db.session.query(Etudiant
+                     ).filter(Etudiant.id == id_etudiant
+                              ).update({Etudiant.nom : dicoModifEtudiant["nom"],
+                                        Etudiant.prenom : dicoModifEtudiant["prenom"],
+                                        Etudiant.classe : dicoModifEtudiant["classe"],
+                                        Etudiant.sexe : dicoModifEtudiant["sexe"],
+                                        Etudiant.age : dicoModifEtudiant["age"]})
+    db.session.commit()
+    
+    
 def delet_etudiant(id_etudiant):
     db.session.query(Etudiant).filter_by(id=id_etudiant).delete()
     db.session.commit()

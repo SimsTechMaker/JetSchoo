@@ -6,8 +6,10 @@ from . import gestion
 from . import route
 from .models import Etudiant, db
 
-
 models.db.init_app(app)
+
+
+
 
 @app.cli.command()
 def init_db():

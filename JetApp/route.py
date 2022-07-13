@@ -14,7 +14,7 @@ from flask import Flask, flash, jsonify, redirect, render_template, request, ses
 
 from .form import ResiterForm, LogForm, Filtre, Scan, PlusForm
 from .fonction import Login_requi, etudi4, listeDesEtudiant
-from .gestion import Post_etudiant, delet_etudiant, get_classe, get_etudiant
+from .gestion import Post_etudiant, delet_etudiant, get_classe, get_etudiant, update_etudiant
 
 
 
@@ -80,12 +80,12 @@ def login():
             return redirect(url_for('listeEtudiant'))
     return render_template("login.html",form=ResiterForm,error=error, )
 
-@app.route("/logout")
+@app.route("/index")
 def logout():
     #Deconection de l'utilisateur et fermeture de sa session
     session.pop("logged_in",None)
     flash("Merci et a bientôt !")
-    return redirect(url_for("login"))
+    return redirect(url_for("index"))
     
 @app.route('/listeEtu')
 def listeEtudiant():
@@ -94,12 +94,14 @@ def listeEtudiant():
     description =" Liste des etudiants "
     liste = listeDesEtudiant()
     print(liste)
-    dim =len(liste)
+    dim = 0
+    
     
     return render_template('listeEtu.html' ,
                            dim=dim ,
                            liste =liste,
                            plus = plus,
+                           
                            
                            title="Liste des Etudiants ", desc=description)
 
@@ -114,13 +116,14 @@ def etudiant():
     infoClasse = get_classe(infoEtudiant[4])
     
     return render_template('pres.html', 
+                           id1 =id,
                            nomEtu= infoEtudiant[0],
                            prenEtu = infoEtudiant[1],
                            sexeEtu = infoEtudiant[2],
                            ageEtu = infoEtudiant[3],
                            classEtu = infoClasse[0],
                            matriEtu = infoEtudiant[5],
-                            
+                           
                            title="Etudiant",
                            desc=description)
 
@@ -134,35 +137,44 @@ def register():
     return render_template('regist.html',form=persone,title="Inscription",desc=description )
 
 
+@app.route('/modif',methods=['POST'])
+def modif():
+    val = request.form['id_et']
 
-
-
-""" 
-
-@app.route('/listeEtu')
-def listeEtudiant():
-    filtre = Filtre()
-    description =" Liste des etudiants "
+    print(val)
+    modi = True
+    print(modi)
+    print(request.form)
+    if request.form["submit"]=="Supprimer":
+        delet_etudiant(val)
+        print("la requette est ok")
+        return redirect(url_for("listeEtudiant"))
+        
+    print("JE SUIS ICICICICICICICICICICICICICICICI")
+    infoEtudiant = get_etudiant(val)
+    infoClasse = get_classe(infoEtudiant[4])
+    formmul = ResiterForm()
+    return render_template("pres.html",
+                           form = formmul,
+                           etudiant = infoEtudiant,
+                           classe = infoClasse,
+                           val = val,
+                           modi=modi) 
     
-    return render_template('listeEtu.html', form = filtre , title="Liste des Etudiants ", desc=description)
-
-
-@app.route('/register',methods=['POST','GET'])
-def register():
-    persone = ResiterForm()
-    description =" Enregistrement de l'etudiant "
     
-    return render_template('regist.html',form=persone,title="Inscription",desc=description )
-     """
-"""     
-@app.route('/submit', methods=['POST'])
-def submit_pwd():
-    auth_pass = request.form['auth_pass']
-    auth_user = request.form['auth_user']
     
-    print("le nom du user est : ", auth_user, "le mot de passe est ", auth_pass)
-    return render_template('index.html')
- """
-
-""" if __name__ == "__main__":
-    app.run() """
+@app.route('/update', methods=['post'])
+def update():
+    dico = {"nom":request.form['lnom'],
+            "prenom":request.form['prenom'],
+            "classe":request.form['classe'],
+            "sexe": request.form['sexe'],
+            "age":request.form['lage']}
+    print("PUTIN C'EST BON !!!!!!!!!!!!!!!!!!!!!!!!")
+    id = request.form['id_et']
+    
+    update_etudiant(id,dico)
+    print (id)
+    formul = ResiterForm()
+    return redirect(url_for("listeEtudiant"))
+    

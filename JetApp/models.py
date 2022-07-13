@@ -1,6 +1,6 @@
 import imp
 import logging as lg
-
+from flask import session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import null, nullslast
 from .views import app  
@@ -105,7 +105,10 @@ def init_db():
     db.session.add(Etudiant("2022SN001",5,"SIMA","NDI","M",25))
     db.session.add(Prof(7,"Dr Nkamdem","juline","F"))
     
+    
+    
     db.session.commit()
+    session.pop("logged_in",None)
     lg.warning("La base de donnée est initialiser")
   
 

@@ -7,8 +7,9 @@
 .login-card2 tr{height:20;font-size:16px;width:100%;margin-bottom:0px; display: block ;text-align: justify;}
 
 .simsNav{padding-top: auto; width:25%;height:28% ; position: relative;}
+.simsNav input  {height:44px;font-size:12px;width:100%;margin-bottom:10px;-webkit-appearance:none;background:rgb(161, 160, 160);box-sizing:border-box; text-align: center;text-underline-position: auto;}
 
-.simsNav a {height:44px;font-size:12px;width:100%;margin-bottom:10px;-webkit-appearance:none;background:rgb(161, 160, 160);box-sizing:border-box; text-align: center;text-underline-position: auto;}
+.simsNav a  {height:44px;font-size:12px;width:100%;margin-bottom:10px;-webkit-appearance:none;background:rgb(161, 160, 160);box-sizing:border-box; text-align: center;text-underline-position: auto;}
 .simsNav > a:active  {height:44px;font-size:12px;width:100%;margin-bottom:10px;-webkit-appearance:none;background:#357ae8;box-sizing:border-box; text-align: center;text-underline-position: auto;}
 
 
