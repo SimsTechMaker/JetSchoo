@@ -1,6 +1,6 @@
 from tkinter import N
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, DateField, RadioField,IntegerField, SelectField
+from wtforms import StringField, SubmitField, PasswordField, DateField, RadioField,IntegerField, SelectField, HiddenField
 from wtforms.validators import DataRequired
 
 
@@ -24,6 +24,12 @@ class Filtre(FlaskForm):
     salClass = SelectField("Classe",choices=['CM2','CM2'])
     sexe = SelectField("Sexe",choices=['H','M'])
     boton = SubmitField("Filtre")
+    
+    
+class PlusForm(FlaskForm):
+    id= HiddenField("id_et",)
+    boton = SubmitField("plus")
+    
     
 class Scan(FlaskForm):
     nom = StringField('name')
