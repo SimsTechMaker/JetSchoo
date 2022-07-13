@@ -57,7 +57,7 @@
     
 <nav id="bien" class="navbar  navbar-expand-sm bien row">
         <div class="col-lg">
-            <a style="font-size: 50px; " :active="none" href="#">JetSchool</a>
+            <a style="font-size: 50px;text-decoration: none; " :active="none" href="#">JetSchool</a>
         </div>
         <div class="col">
             {% include 'card.html' %}
@@ -66,9 +66,11 @@
         ...
 </nav>
 <section class="row">
+    {% if session.logged_in %}
     <div class="col-lg login-card simsNav">
         {% include 'barlat.html' %}
     </div>
+    {% endif %}
     <div class=" col-lg-10">
         {% block content %}{% endblock %}
     </div>

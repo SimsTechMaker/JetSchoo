@@ -1,6 +1,7 @@
 
 from distutils.log import error
 import errno
+from operator import methodcaller
 from os import abort
 from JetApp.models import Etudiant, db
 
@@ -11,7 +12,7 @@ from atexit import register
 import re
 from flask import Flask, flash, jsonify, redirect, render_template, request, session, url_for
 
-from .form import ResiterForm, LogForm, Filtre, Scan
+from .form import ResiterForm, LogForm, Filtre, Scan, PlusForm
 from .fonction import Login_requi, etudi4, listeDesEtudiant
 from .gestion import Post_etudiant, delet_etudiant, get_classe, get_etudiant
 
@@ -88,21 +89,28 @@ def logout():
     
 @app.route('/listeEtu')
 def listeEtudiant():
+    plus =PlusForm()
     filtre = Filtre()
     description =" Liste des etudiants "
     liste = listeDesEtudiant()
+    print(liste)
     dim =len(liste)
     
-    return render_template('listeEtu.html', form = filtre ,
+    return render_template('listeEtu.html' ,
                            dim=dim ,
                            liste =liste,
+                           plus = plus,
                            
                            title="Liste des Etudiants ", desc=description)
 
-@app.route('/pres')
+
+
+@app.route('/pres', methods=['POST','GET'])
 def etudiant():
+    
+    id = request.form['id_et']
     description =" Information sur l'etudiant "
-    infoEtudiant = get_etudiant(1)
+    infoEtudiant = get_etudiant(id)
     infoClasse = get_classe(infoEtudiant[4])
     
     return render_template('pres.html', 
@@ -116,12 +124,19 @@ def etudiant():
                            title="Etudiant",
                            desc=description)
 
+
+
 @app.route('/register',methods=['POST','GET'])
 def register():
     persone = ResiterForm()
     description =" Enregistrement de l'etudiant "
     
     return render_template('regist.html',form=persone,title="Inscription",desc=description )
+
+
+
+
+
 """ 
 
 @app.route('/listeEtu')

@@ -22,14 +22,20 @@ def Login_requi(f):
     return decoration_fonction
 
 def listeDesEtudiant():
-    i=0
+    t=0
+    dico ={}
     listeEtu = []
     for i in db.session.query(Etudiant).order_by(Etudiant.id):
-        i = i.id
-    for j in range(i+1):
+        t += 1
+        dico[i.id]= i
+    for j in range(t+1):
         j+=1
         listeEtu.append(gestion.get_etudiant(j))
-    return(listeEtu)
+    print(listeEtu)
+    print(dico)
+    print(dico[1].nom)
+    print(len(dico))
+    return(dico)
 
 
 """ infoEtudian = [ etudi4.nom,

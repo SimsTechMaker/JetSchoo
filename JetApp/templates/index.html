@@ -11,10 +11,9 @@
   <body>
     <div class="container">
       <br /><br />
-      <h1>Flaskr</h1>
+      <h1>JetSchool</h1>
       <br /><br />
 
-      <a class="btn btn-info" role="button" href="{{ url_for('search') }}">Search</a>
 
       {% if not session.logged_in %}
       <a class="btn btn-success" role="button" href="{{ url_for('login') }}"
@@ -65,7 +64,7 @@
       </form>
       {% endif %}
 
-      <br />
+      <br  style="text-decoration: none;" />
 
       <ul class="entries">
         {% for entry in entries %}

@@ -4,9 +4,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include 'card.html' %}
 <section style="padding: 0;">
-    <div class="">
+    
           <div class="col-rt-12">
               <div class="Scriptcontent">
 
@@ -19,28 +18,29 @@
                         <div class="col-lg">
                             <div class="card shadow-sm">
                             <div class="card-header bg-transparent border-0">
-                                <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Informations Génerales</h3>
+                                <h3 class="mb-0"><i class="far fa-clone pr-1"></i>liste des Etudiants </h3>
                             </div>
                             <div class="card-body pt-0">
                                 <table class="table table-bordered">
-                                <tr>
-                                    <th width="18%">Matricule</th>
+                                <tr style="text-align: center;">
+                                    <th width="14%" >Matricule</th>
                                     <td width="24%">Nom</td>
-                                    <td width="24%">prenom</td>
+                                    <td width="26%">prenom</td>
                                     <td width="2%">sexe</td>
                                     <td width="2%">sexe</td>
-                                    <td width="24%">date de naissance</td>
-                                    <td width="2%"><a href="{{ url_for('etudiant') }}"><i class="icon icon-plus">+</i></a></td>
+                                    <td width="18%">date de naissance</td>
+                                    <td width="1%"><a href="{{ url_for('etudiant') }}"><i class="icon icon-plus">Plus</i></a></td>
                                 </tr>
-                                {% for i in range(dim)%}
-                                <tr>
-                                    <th width="18%">{{liste[i][5]}}</th>
-                                    <td width="24%">{{liste[i][0]}}</td>
-                                    <td width="24%">{{liste[i][1]}}</td>
-                                    <td width="2%">{{liste[i][2]}}</td>
+                                {% for i in liste%}
+                                <tr >
+                                    <th width="14%" style="text-align: center;">{{liste[i].mat}}</th>
+                                    <td width="24%">{{liste[i].nom}}</td>
+                                    <td width="26%">{{liste[i].prenom}}</td>
+                                    <td width="2%">{{liste[i].sexe}}</td>
                                     <td width="2%">sexe</td>
-                                    <td width="24%">{{liste[i][3]}}</td>
-                                    <td width="2%"><a href="{{ url_for('etudiant') }}"><i class="icon icon-plus">+</i></a></td>
+                                    <td width="18%" style="text-align: center;">{{liste[i].age}}</td>
+
+                                    <td width="1%" style="text-align: center;"> <form method="post" action="{{ url_for('etudiant') }}"> <input type="hidden" name="id_et" value="{{liste[i].id}}">  {{plus.boton(class="login login-submit")}} </form></a></td>
                                 </tr>
                                 {% endfor %}
                                 </table>
@@ -58,7 +58,7 @@
                             
     		</div>
 		</div>
-    </div>
+    
 </section>
      
 

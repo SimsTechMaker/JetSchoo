@@ -19,7 +19,7 @@ def get_etudiant(id_etudiant):
         variable.append(etudi.id)
         
         
-        print(variable[0])
+        print(variable[3])
     
     return variable
 
