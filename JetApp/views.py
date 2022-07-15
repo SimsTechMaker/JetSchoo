@@ -1,14 +1,15 @@
-from atexit import register
-import re
-from flask import Flask, render_template, request
 
-from .form import ResiterForm, Filtre, Scan
+from flask import Flask
 
 
+from flask_sqlalchemy import SQLAlchemy
 
 
 
+CONFIG ='config'
 
 app = Flask(__name__)
 
-app.config.from_object('config')
+app.config.from_object("config")
+
+db = SQLAlchemy(app)
