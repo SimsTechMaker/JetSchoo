@@ -1,19 +1,16 @@
 
-from distutils.log import error
-import errno
-from operator import methodcaller
+
 from os import abort
-from JetApp.models import Etudiant, db
+from .models import Etudiant, db
 
 from config import PASSWD, USERNAME
 from .views import app
 
-from atexit import register
-import re
-from flask import Flask, flash, jsonify, redirect, render_template, request, session, url_for
 
-from .form import ResiterForm, LogForm, Filtre, Scan, PlusForm
-from .fonction import Login_requi, etudi4, listeDesEtudiant
+from flask import  flash, jsonify, redirect, render_template, request, session, url_for
+
+from .form import ResiterForm, Filtre, PlusForm
+from .fonction import  listeDesEtudiant
 from .gestion import Post_etudiant, delet_etudiant, get_classe, get_etudiant, update_etudiant
 
 
@@ -36,10 +33,12 @@ def add_etu():
     prenom = request.form['prenom']
     classe = request.form['SalClass']
     sexe = request.form['sexe']
-    age = str(request.form['date_nais'])
+    age = request.form['date_nais']
+    print('tttttttttttttttttttttttttttttttttttttttttt')
     Post_etudiant(nom,prenom,age,sexe,classe,matricule)
     flash ("Etudiant enregister avec succes !")
     return redirect(url_for("listeEtudiant"))
+
 
 @app.route("/delete/<int:id_etudiant>", methods=['GET'])
 #@Login_requi #la condition pour supprimer tu as besion d'etre en login admin

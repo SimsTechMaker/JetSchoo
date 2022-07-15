@@ -1,5 +1,4 @@
 
-import logging as lg
 
 from .models import db , Etudiant, SalleClass
 

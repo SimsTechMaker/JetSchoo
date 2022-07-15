@@ -9,9 +9,6 @@ from .models import db , Etudiant
 from copy import deepcopy
 
 
-etudi4 =gestion.get_etudiant(1)
-print(etudi4)
-
 def Login_requi(f):
     @wrap(f)
     def decoration_fonction(*args,**kwargs):

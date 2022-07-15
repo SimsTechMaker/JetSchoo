@@ -9,20 +9,7 @@ from .models import Etudiant, db
 models.db.init_app(app)
 
 
-
-
-@app.cli.command()
-def init_db():
-    models.init_db()  
-
-""" 
-
+models.init_db() 
 gestion.Post_etudiant("akesbi","nkomo",18,"M",2,"2FDE599")
-gestion.Post_etudiant("NDI","Moussi",17,"F",2,"zzz575")
 
 
-etudi =gestion.get_etudiant(2)
-print(etudi.nom)
-print("BONJOURRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
-
- """

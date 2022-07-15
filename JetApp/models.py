@@ -58,14 +58,14 @@ class SalleClass(db.Model):
 
 class Etudiant(Humain, db.Model):
     __tablename__ = "etudiant"
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer(), primary_key=True)
     mat = db.Column(db.String(15), nullable=False)
     
     nom = db.Column(db.String(25), nullable=False)
     prenom = db.Column(db.String(25), nullable=False)
     sexe = db.Column(db.String(15), nullable=False)
-    age = db.Column(db.String(12), nullable=False)
-    classe = db.Column(db.String(9), db.ForeignKey('salleclass.id'),nullable=False)
+    age = db.Column(db.Integer(), nullable=False)
+    classe = db.Column(db.Integer(), db.ForeignKey('salleclass.id'),nullable=False)
     
     def __init__(self,matricule,classe, nom, prenom, sexe, age):
         super().__init__(nom, prenom, sexe, age)
@@ -102,15 +102,12 @@ def init_db():
         db.session.add(SalleClass(clss[i][0],clss[i][1]))
     db.session.commit()
     db.session.add(AdminJet('root',"theroot"))
-    db.session.add(Etudiant("2022SN001",5,"SIMA","NDI","M",25))
     db.session.add(Prof(7,"Dr Nkamdem","juline","F"))
     
     
     
     db.session.commit()
-    session.pop("logged_in",None)
     lg.warning("La base de donnée est initialiser")
   
 
 
-   
