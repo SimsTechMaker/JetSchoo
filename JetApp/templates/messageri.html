@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <h2>Acceuil</h2>
+    <br /><br />
+ {% if session.logged_in %}
+    <form
+      action="{{ url_for('add_entry') }}"
+      method="post"
+      class="add-entry form-group"
+    >
+      <dl>
+        <dt>Title:</dt>
+        <dd>
+          <input
+            type="text"
+            size="30"
+            name="title"
+            class="form-control col-lg"
+          />
+        </dd>
+        <dt>Text:</dt>
+        <dd>
+          <textarea
+            name="text"
+            rows="5"
+            cols="40"
+            class="form-control col-lg"
+          ></textarea>
+        </dd>
+        <br /><br />
+        <dd>
+          <input type="submit" class="btn btn-primary" value="Envoyer" />
+        </dd>
+      </dl>
+    </form>
+    {% endif %}
+
+    <br />
+
+    <ul class="entries">
+      {% for entry in entries %}
+      <li class="entry">
+        <h3 id="{{ entry.id }}">{{ entry.title }}</h3>
+        {{ entry.text|safe }}
+      </li>
+      {% else %}
+      <li><em>No entries yet. Add some!</em></li>
+      {% endfor %}
+    </ul>
+  </div>
+ 
+{% endblock %}

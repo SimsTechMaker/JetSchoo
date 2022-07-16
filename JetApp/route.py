@@ -11,13 +11,15 @@ from flask import  flash, jsonify, redirect, render_template, request, session, 
 
 from .form import ResiterForm, Filtre, PlusForm
 from .fonction import  listeDesEtudiant
-from .gestion import Post_etudiant, delet_etudiant, get_classe, get_etudiant, update_etudiant
+from .gestion import get_message, post_message, Post_etudiant,delet_etudiant, get_classe, get_etudiant, update_etudiant
 
 
 
 @app.route('/')
 def index():
-    return render_template('index.html',title="Page d'acceuil")
+    
+    entries = get_message()
+    return render_template('index.html',entries=entries,title="Page d'acceuil")
 
 
 
@@ -76,8 +78,48 @@ def login():
         else:
             session["logged_in"] = True
             flash("Succes connection !")
-            return redirect(url_for('listeEtudiant'))
+            return redirect(url_for('home'))
     return render_template("login.html",form=ResiterForm,error=error, )
+
+
+
+
+
+
+
+
+
+
+
+@app.route("/messagerie")
+def home():
+    entries = get_message()
+    return render_template("messageri.html", entries=entries ,title="Page d'acceuil")
+
+
+
+@app.route("/addmessage", methods=["POST"])
+def add_entry():
+    """Adds new post to the database."""
+    """ if not session.get("logged_in"):
+        abort(401) """
+    post_message(request.form["title"], request.form["text"])
+
+    flash("New entry was successfully posted")
+    return redirect(url_for("home"))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route("/index")
 def logout():

@@ -1,6 +1,6 @@
 
 
-from .models import db , Etudiant, SalleClass
+from .models import db , Etudiant, SalleClass, Post
 
 def Post_etudiant(nom,prenom,age,sexe,Salclass,matricul):
     db.session.add(Etudiant(matricul,Salclass,nom,prenom,sexe,age))
@@ -21,6 +21,20 @@ def get_etudiant(id_etudiant):
         print(variable[3])
     
     return variable
+
+def post_message(titre,message):
+    
+    thepost =Post(titre, message)
+    db.session.add(thepost)
+    db.session.commit() 
+    
+    
+def get_message():
+   liste_message= db.session.query(Post)
+   return liste_message
+    
+    
+    
 
 def get_classe(id_classe):
     variable = []

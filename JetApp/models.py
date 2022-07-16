@@ -89,6 +89,22 @@ class Prof (Humain, db.Model):
         super().__init__(nom, prenom, sexe, age)
         self.mat = matier
         
+
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    text = db.Column(db.String, nullable=False)
+
+    def __init__(self, title, text):
+        self.title = title
+        self.text = text
+
+    def __repr__(self):
+        return f"<title {self.title}>"
+
+
+
     
 mati = ["SVT", "Maths", "Infromatique", "Histoire", "EPS", "Pysique", "Chimie"]
 clss = [["6eme",25],["5eme",55],["4eme",30],["3eme",85],["2nde",45],["1er",25],["Tle",15]]
@@ -111,3 +127,6 @@ def init_db():
   
 
 
+def init_drop_db():
+    
+    db.drop_all()

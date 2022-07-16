@@ -1,0 +1,22 @@
+def test_login_logout(client):
+    """Test login and logout using helper functions"""
+    rv = login(client, USERNAME, PASSWORD)
+    assert b"You were logged in" in rv.data
+    rv = logout(client)
+    assert b"You were logged out" in rv.data
+    rv = login(client, USERNAME+ "x", PASSWORD)
+    assert b"Invalid username" in rv.data
+    rv = login(client, USERNAME, PASSWORD + "x")
+    assert b"Invalid password" in rv.data
+    
+    
+    
+def test_delete_message(client):
+    """Ensure the messages are being deleted"""
+    rv = client.get("/delete/1")
+    data = json.loads(rv.data)
+    assert data["status"] == 0
+    login(client, USERNAME, PASSWORD)
+    rv = client.get("/delete/1")
+    data = json.loads(rv.data)
+    assert data["status"] == 1
