@@ -65,6 +65,7 @@ def search():
     return render_template("listeEtu.html")    
  
    
+   
 @app.route("/login",  methods= ['GET','POST'])
 def login():
     # authentification des utilisateurs et management de la session

@@ -1,6 +1,4 @@
 
-from ast import arg
-from statistics import variance
 from textwrap import wrap
 
 from flask import session, flash,request,render_template,jsonify

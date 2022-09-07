@@ -1,15 +1,9 @@
-import json
 from pathlib import Path
 
 import pytest
 
 from JetApp.views import app, db
 from JetApp.models import init_db, init_drop_db
-
-from flask_testing import LiveServerTestCase
-
-from selenium import webdriver
-from sqlalchemy import desc
 
 
 
@@ -87,3 +81,4 @@ def test_messages(client):
     assert b"<strong>HTML</strong> allowed here" in rv.data
 
 
+    

@@ -322,3 +322,66 @@ console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resou
 console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
 console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
 JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 767))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+1658045935095	Marionette	INFO	Stopped listening on port 51477
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 36704, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+1658270730204	geckodriver	INFO	Listening on 127.0.0.1:64991
+1658270733235	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64992" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\emman\\AppData\\Local\\Temp\\rust_mozprofileDvz9ad"
+1658270733908	Marionette	INFO	Marionette enabled
+1658270733912	Marionette	INFO	Listening on port 65002
+WebDriver BiDi listening on ws://localhost:64992
+Read port: 65002
+1658270734104	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\emman\\AppData\\Local\\Temp\\rust_mozprofileDvz9ad\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64992/devtools/browser/fd92ead6-d2e2-4db6-acc1-e5a478c16b1d
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1658287005885	Marionette	INFO	Stopped listening on port 65002
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 1112, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+l\\Temp\\rust_mozprofilepoodnp"
+1658270774937	Marionette	INFO	Marionette enabled
+1658270774949	Marionette	INFO	Listening on port 65104
+WebDriver BiDi listening on ws://localhost:65094
+Read port: 65104
+1658270775226	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\emman\\AppData\\Local\\Temp\\rust_mozprofilepoodnp\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:65094/devtools/browser/ed6ef8c1-1671-4f97-beac-b60b51249b3d
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1658287005846	Marionette	INFO	Stopped listening on port 65104
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 14004, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+\\Temp\\rust_mozprofileIYhgrg"
+1658271006339	Marionette	INFO	Marionette enabled
+1658271006346	Marionette	INFO	Listening on port 49251
+WebDriver BiDi listening on ws://localhost:49241
+Read port: 49251
+1658271006617	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\emman\\AppData\\Local\\Temp\\rust_mozprofileIYhgrg\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49241/devtools/browser/5f12462a-b720-4c78-8458-40103bbe7374
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1658287005874	Marionette	INFO	Stopped listening on port 49251
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 31460, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+\\Temp\\rust_mozprofileZSUmit"
+1658271028323	Marionette	INFO	Marionette enabled
+1658271028327	Marionette	INFO	Listening on port 49335
+WebDriver BiDi listening on ws://localhost:49317
+Read port: 49335
+1658271028461	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\emman\\AppData\\Local\\Temp\\rust_mozprofileZSUmit\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49317/devtools/browser/6f336602-b661-4e41-aa25-0afb946c53c2
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:4000"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1658287005923	Marionette	INFO	Stopped listening on port 49335
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
